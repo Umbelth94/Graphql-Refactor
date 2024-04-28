@@ -1,5 +1,3 @@
-
-
 const typeDefs =`
     type User {
         _id: ID 
@@ -8,6 +6,7 @@ const typeDefs =`
         bookCount: Int
         savedBooks: [Book]
     }
+
     type Book {
         bookId: String
         authors: [String]!
@@ -41,6 +40,6 @@ const typeDefs =`
         saveBook(book: BookInput!): User
         removeBook(bookId: String!): User
     }
-    `
+    `;
 
 module.exports = typeDefs;
