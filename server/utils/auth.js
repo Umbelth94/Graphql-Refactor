@@ -1,4 +1,5 @@
 const jwt = require('jsonwebtoken');
+const { AuthenticationError } = require('apollo-server-express')
 
 // set token secret and expiration date
 const secret = 'mysecretsshhhhh';
@@ -16,7 +17,7 @@ module.exports = {
     }
 
     if (!token) {
-      return res.status(400).json({ message: 'You have no token!' });
+      throw new AuthenticationError('You must be logged in');
     }
 
     // verify token and get user data out of it
